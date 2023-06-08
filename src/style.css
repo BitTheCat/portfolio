@@ -1,89 +1,48 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.background-color {
+    /*background-color: #d3d3d3;*/
+    background:
+        radial-gradient(#d3d3d3 15%, transparent 16%) 0 0,
+        radial-gradient(#d3d3d3 5%, transparent 16%) 8px 8px,
+        radial-gradient(#d3d3d3 15%, transparent 20%) 0 1px,
+        radial-gradient(#d3d3d3 15%, transparent 20%) 8px 9px,
+        #c4c4c4;
+        /* #c7c7c7; */
+    background-size:5px 5px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.card-bg {
+    background:
+        #c0b3ae;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    @apply background-color
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.menu-item {
+    @apply rounded hover:bg-orange-400/80
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.menu-item-active {
+    @apply underline
 }
 
-.card {
-  padding: 2em;
-}
+.btn {
+    @apply inline-flex items-center rounded border border-transparent text-white shadow-sm 
+    focus:outline-none focus:ring-2 focus:ring-orange-200 focus:ring-offset-2 disabled:opacity-50
+    bg-gray-400 m-2 px-1
+ }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+.btn-active {
+    @apply bg-orange-500 mx-2 px-1
+ }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+ .card {
+    @apply py-4 px-8 shadow-lg card-bg rounded-sm rounded-r-xl my-20 mt-2 mb-2
+    border-b-4 border-r-2 border-b-orange-400/80 border-r-orange-400/80
+ }

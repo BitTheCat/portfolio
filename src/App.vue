@@ -1,30 +1,101 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+    <div class="grid grid-cols-1 sm:grid-cols-12 gap-5 mt-5 sm:mt-20">
+        <div class="sm:col-start-1 sm:col-span-2 ml-5">
+            <div class="mb-2 flex flex-col items-center">
+                <router-link
+                    to="/"
+                    @click="currentPage = '/'"
+                >
+                    <img
+                        class="w-32 h-32 rounded-full"
+                        src="./assets/logo.svg"
+                        alt="man avatar"
+                    >
+                </router-link>
+                <div class="flex items-center gap-x-8 mt-3">
+                    <a
+                        href="https://www.twitter.com/bitthecat/"
+                        target="_blank"
+                        type="button"
+                        aria-label="twitter"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        ><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5 0-.28-.03-.56-.08-.83A7.72 7.72 0 0 0 23 3z" /></svg>
+                    </a>
+
+                    <a
+                        href="https://www.github.com/bitthecat/"
+                        target="_blank"
+                        type="button"
+                        aria-label="github"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg> </a>
+                </div>
+            </div>
+
+            <ul>
+                <li>
+                    <router-link
+                        class="menu-item"
+                        :class="{
+                            'menu-item-active': isActive('/')
+                        }"
+                        to="/"
+                        @click="currentPage = '/'"
+                    >
+                        Homepage
+                    </router-link>
+                </li>
+                <li class="mt-3 italic">
+                    Projects
+                </li>
+                <li>
+                    <router-link
+                        class="menu-item"
+                        :class="{
+                            'menu-item-active': isActive('/tailwind-vue-table')
+                        }"
+                        to="/tailwind-vue-table"
+                        @click="currentPage = '/tailwind-vue-table'"
+                    >
+                        Tailwind Vue Table
+                    </router-link>
+                </li>
+            </ul>
+        </div>
+        <div class="sm:col-start-3 sm:col-span-12">
+            <router-view />
+        </div>
+    </div>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+
+const currentPage = ref(window.location.pathname)
+
+const isActive = (page = '/') => {
+  return page === currentPage.value
+}
+
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
