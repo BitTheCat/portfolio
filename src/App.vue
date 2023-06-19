@@ -1,8 +1,21 @@
 <template>
     <div class="grid grid-cols-1 sm:grid-cols-12 gap-5 mt-5 sm:mt-20">
-        <div class="sm:col-start-1 sm:col-span-2 ml-5">
+        <div class="sm:col-start-1 sm:col-span-2 ml-5 fixed top-50 left-0 mt-5">
+            <!-- <button id="scrollButton" onclick="topFunction()">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    class="bi bi-arrow-up"
+                    viewBox="0 0 16 16"
+                >
+                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                </svg>
+            </button> -->
             <div class="mb-2 flex flex-col items-center">
                 <router-link
+                    class="hover:bg-transparent"
                     to="/"
                     @click="currentPage = '/'"
                 >
@@ -24,7 +37,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="#000"
+                            stroke="#1F2937"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -42,7 +55,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="#000"
+                            stroke="#1F2937"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -53,7 +66,6 @@
             <ul>
                 <li>
                     <router-link
-                        class="menu-item"
                         :class="{
                             'menu-item-active': isActive('/')
                         }"
@@ -68,7 +80,6 @@
                 </li>
                 <li>
                     <router-link
-                        class="menu-item"
                         :class="{
                             'menu-item-active': isActive('/tailwind-vue-table')
                         }"
@@ -79,6 +90,10 @@
                     </router-link>
                 </li>
             </ul>
+
+            <div class="mt-5 text-xs">
+                Copyright © 2022, BitTheCat - All rights reserved
+            </div>
         </div>
         <div class="sm:col-start-3 sm:col-span-12">
             <router-view />

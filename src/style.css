@@ -1,7 +1,9 @@
+/* @import './prism.css'; */
+@import './prism-theme.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 .background-color {
     /*background-color: #d3d3d3;*/
@@ -17,19 +19,20 @@
 
 .card-bg {
     background:
-        #c0b3ae;
+        #ddd4d0;
 }
 
 body {
     @apply background-color
 }
 
-.menu-item {
-    @apply rounded hover:bg-orange-400/80
+a {
+   @apply rounded hover:bg-orange-400/80 underline  decoration-dotted underline-offset-2
 }
 
+
 .menu-item-active {
-    @apply underline
+    @apply underline decoration-solid bg-orange-400/80 hover:bg-orange-300/80
 }
 
 .btn {
@@ -46,3 +49,43 @@ body {
     @apply py-4 px-8 shadow-lg card-bg rounded-sm rounded-r-xl my-20 mt-2 mb-2
     border-b-4 border-r-2 border-b-orange-400/80 border-r-orange-400/80
  }
+
+ pre {
+    @apply rounded-md
+ }
+
+ hr {
+    @apply my-4 border border-b-orange-400/80
+ }
+
+ #scrollButton {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #ff5800;
+    color: white;
+    cursor: pointer;
+    padding: 9px;
+    padding-bottom: 6px;
+    border-radius: 50%;
+}
+  
+#scrollButton:hover {
+    background-color: #555;
+}
+
+table, td, tr, th {
+    @apply border border-gray-500
+}
+
+tbody {
+    background:#ebe1dd;
+}
+
+table > thead {
+    @apply bg-orange-300 
+}
