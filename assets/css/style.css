@@ -27,17 +27,9 @@
 }
 
 .image-about {
-    width: 80%;
+    width: 70%;
     border-radius: 50%;
     object-fit: cover;
-}
-
-/* footer styling */
-#footer {
-    background-color: #808080;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 20px;
 }
 
 .card {
@@ -46,6 +38,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
     transition: transform 0.2s;
+    max-width: 400px;
 }
 
 .card:hover {
@@ -99,13 +92,26 @@ a:hover {
     text-decoration: underline;
 }
 
-#footer a {
-    color: #ffffff; 
-    text-decoration: dotted;
-    margin-right: 1rem; 
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
 }
 
-#footer a:hover {
-    color: #cccccc; 
-    text-decoration: underline;
+@media (max-width: 767.98px) {
+    .card-container {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-container {
+        flex-direction: row;
+    }
+}
+
+#social {
+    margin-bottom: 5%;
 }
