@@ -3,12 +3,18 @@
     background-color: rgb(82, 82, 82);
 }
 
-/* hero background image */
 .bg-image {
     height:100vh;
     background: url('../img/bg_img.jpg');
     background-size:cover;
     position:relative;
+}
+
+#social, #about, #portfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
 }
 
 .home-title {
