@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Deno/Lume
+_site/
+deno.lock
+.env
+.env.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
