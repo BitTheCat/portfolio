@@ -13,7 +13,6 @@ dist-ssr
 *.local
 
 # Deno/Lume
-_site/
 deno.lock
 .env
 .env.local
