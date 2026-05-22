@@ -4,7 +4,7 @@ const PORT = 3000;
 
 async function handler(req: Request): Promise<Response> {
   const url = new URL(req.url);
-  let filePath = url.pathname === "/" ? "/index.md" : url.pathname;
+  let filePath = url.pathname === "/" ? "/index.html" : url.pathname;
 
   // Remove .md extension if present and serve as HTML
   if (filePath.endsWith(".md")) {
@@ -24,7 +24,7 @@ async function handler(req: Request): Promise<Response> {
 
     // Serve index.html for root
     if (url.pathname === "/" || url.pathname === "") {
-      const indexContent = await Deno.readTextFile("./index.md");
+      const indexContent = await Deno.readTextFile("./index.html");
       return new Response(indexContent, {
         headers: {
           "Content-Type": "text/html; charset=utf-8",

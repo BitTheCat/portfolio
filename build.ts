@@ -11,7 +11,7 @@ if (await fs.exists(BUILD_DIR)) {
 }
 
 // Copy index.md as index.html
-const indexMd = await Deno.readTextFile("./index.md");
+const indexMd = await Deno.readTextFile("./index.html");
 await Deno.writeTextFile(path.join(BUILD_DIR, "index.html"), indexMd);
 
 // Copy styles.css
